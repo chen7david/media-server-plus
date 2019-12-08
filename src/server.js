@@ -6,14 +6,14 @@ const cors = require('cors')
 const port = require('./config').APP_PORT || 4000
 const {} = require('./routes')
 
-// set app parameters
+// Set app parameters
 app.set('view engine', 'njk')
 
-// expose public directories
+// Expose public directories
 app.use('/media', express.static(__dirname + '/public/uploads'))
 app.use('/assets',express.static(__dirname + '/public/assets'))
 
-// run server
+// Run server
 server.listen(port, () => {
     console.log(`MediaServer is running at http://localhost:${port}`)
 })
