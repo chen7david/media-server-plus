@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
           }
     },
     filename: function(req, file, cb) {
-        cb(null, crypto.randomBytes(5).toString('hex') + path.extname(file.originalname));
+        cb(null, crypto.randomBytes(8).toString('hex').toUpperCase() + path.extname(file.originalname));
     }
 })
 

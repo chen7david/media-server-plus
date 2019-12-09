@@ -3,8 +3,17 @@ const crypto = require('crypto')
 
 class Movie extends BaseModel {
 
+    static get virtualAttributes() {
+        return ['cover', 'poster'];
+    }
+
     async $beforeInsert() {
         this.movieId = "MO" + crypto.randomBytes(5).toString('hex').toUpperCase()
+    }
+
+    async cover(){
+        const cover = await this.$relatedQuery('images').where('type',1).andWhere('default', true).first()
+        return cover
     }
 
     static get relationMappings(){

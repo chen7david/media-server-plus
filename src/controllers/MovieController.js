@@ -3,7 +3,9 @@ const { Movie } = require('./../models')
 module.exports = {
 
     index: async (req, res) => {
-        res.render('movies/index.html')
+        const movies = await Movie.query().eager('[videos, images, captions]')
+        console.log(movies)
+        res.render('movies/index.html', {movies})
     },
     create: async (req, res) => {
         res.render('movies/create.html')
