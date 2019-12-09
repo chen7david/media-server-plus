@@ -9,9 +9,9 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Resolution</label>
+                <label class="input-group-text">Resolution</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select name="resolution" class="custom-select">
                 <option selected>Choose...</option>
                 <option value="4K">4K</option>
                 <option value="1080p">1080p</option>
@@ -28,20 +28,26 @@
         <div class="input-group my-3">
             <div class="custom-file">
               <input type="file" name="videos" class="custom-file-input" multiple>
-              <label class="custom-file-label" for="inputGroupFile01">Choose Video file</label>
+              <label class="custom-file-label">Choose Videos files</label>
             </div>
         </div>
         <div class="input-group mb-3">
             <div class="custom-file">
               <input type="file" name="covers" class="custom-file-input" multiple>
-              <label class="custom-file-label">Choose Cover file</label>
+              <label class="custom-file-label">Choose Covers files</label>
             </div>
         </div>
         <div class="input-group my-3">
             <div class="custom-file">
               <input type="file" name="posters" class="custom-file-input" multiple>
-              <label class="custom-file-label">Choose Poster file</label>
+              <label class="custom-file-label">Choose Posters files</label>
             </div>
+        </div>
+        <div class="input-group my-3">
+          <div class="custom-file">
+            <input type="file" name="captions" class="custom-file-input" multiple>
+            <label class="custom-file-label">Choose Captions files</label>
+          </div>
         </div>
         <button class="btn btn-outline-success">UPLOAD</button>
       </form>

@@ -11,5 +11,6 @@ router.route('/movies/create')
         {name:'videos'},
         {name:'covers'},
         {name:'posters'},
+        {name:'captions'},
     ]),MovieController.insert)   
 module.exports = router
