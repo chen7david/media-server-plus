@@ -4,7 +4,10 @@ const server = require('http').createServer(app)
 const nunjucks = require('nunjucks')
 const cors = require('cors')
 const port = require('./config').APP_PORT || 4000
-const { HomeRoutes } = require('./routes')
+const {
+    HomeRoutes, 
+    MovieRoutes
+} = require('./routes')
 
 // Set app parameters
 app.set('view engine', 'njk')
@@ -14,8 +17,12 @@ nunjucks.configure(__dirname + '/views', {
     express: app
 })
 
+// allow thirdparty access
+app.use(cors())
+
 // Setup Routes
 app.use(HomeRoutes)
+app.use(MovieRoutes)
 
 // Expose public directories
 app.use('/media', express.static(__dirname + '/public/uploads'))

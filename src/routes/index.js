@@ -1,3 +1,4 @@
 module.exports = {
-    HomeRoutes: require('./home')
+    HomeRoutes: require('./home'),
+    MovieRoutes: require('./movies')
 }
