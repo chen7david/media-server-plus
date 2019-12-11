@@ -2,17 +2,29 @@
 
 {% block body %} 
 <h1>Welcome to Movies</h1>
-<div class="modal-body">
-    <h5>Popover in a modal</h5>
-    <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
-    <hr>
-    <h5>Tooltips in a modal</h5>
-    <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> have tooltips on hover.</p>
-  </div>
-
-  {% for item in movies %}
-      {{item.cover}}
+<div class="controls">
+  <a href="/movies/create" class="btn btn-outline-success btn-sm">ADD MOVIE</a>
+</div>
+<div class="row mt-3">
+  {% for movie in movies %}
+      <div class="movie-card">
+        <div class="movie-card-poster">
+            <video poster="/media/image/{{movie.posters[0].filename}}" class="video-poster-mode" style="outline: none" preload="none"  controls controlsList="nodownload">
+                <source src="/media/video/{{movie.videos[0].filename}}" type="{{movie.videos[0].mimetype}}">
+                {% for caption in movie.captions %}
+                  <track label="{{caption.label}}" kind="subtitles" srclang="{{caption.srclang}}" src="/media/captions/{{caption.filename}}" default>
+                {% endfor %}
+            </video>
+        </div>
+        <div class="movie-card-info">
+            <div class="movie-card-tile">
+                    {{movie.title}}
+            </div>
+            <a href="/media/video/{{movie.videos[0].filename}}" class="btn btn-outline-light btn-sm" download="{{movie.title}}">DOWNLOAD</a>
+            <a href="/movies/{{movie.movieId}}/delete" class="btn btn-outline-danger btn-sm">DELETE</a>
+        </div>
+    </div>
   {% endfor %}
 {% endblock %}
-
+</div>
     

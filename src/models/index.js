@@ -1,6 +1,7 @@
 module.exports = {
     Movie: require('./Movie'),
     Video: require('./Video'),
-    Image: require('./Image'),
+    Cover: require('./Cover'),
+    Poster: require('./Poster'),
     Caption: require('./Caption'),
 }

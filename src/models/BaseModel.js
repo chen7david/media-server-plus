@@ -8,6 +8,14 @@ Model.knex(Knex)
 
 class BaseModel extends DBErrors(Model) {
 
+        static get modifiers() {
+            return {
+                default(query) {
+                    query.where('default', true).first()
+                }
+            }
+        }
+
         static get tableName() {
             return pluralize(this.name.toLowerCase())
         }

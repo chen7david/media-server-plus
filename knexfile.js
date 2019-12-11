@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      host:     '192.168.50.251',
+      host:     'aox.ddns.net',
       port:     '3001',
       database: 'msdb',
       user:     'admin',

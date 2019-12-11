@@ -13,4 +13,7 @@ router.route('/movies/create')
         {name:'posters'},
         {name:'captions'},
     ]),MovieController.insert)   
+
+router.route('/movies/:movieId/delete')
+    .get(MovieController.delete)
 module.exports = router

@@ -10,16 +10,12 @@ class Movie extends BaseModel {
     async $beforeInsert() {
         this.movieId = "MO" + crypto.randomBytes(5).toString('hex').toUpperCase()
     }
-
-    async cover(){
-        const cover = await this.$relatedQuery('images').where('type',1).andWhere('default', true).first()
-        return cover
-    }
-
+    
     static get relationMappings(){
         
         const Video = require('./Video')
-        const Image = require('./Image')
+        const Cover = require('./Cover')
+        const Poster = require('./Poster')
         const Caption = require('./Caption')
 
         return {
@@ -31,12 +27,20 @@ class Movie extends BaseModel {
                     to:'videos.movie_id'
                 }
             },
-            images:{
+            covers:{
                 relation: BaseModel.HasManyRelation,
-                modelClass: Image,
+                modelClass: Cover,
                 join:{
                     from:'movies.id',
-                    to:'images.movie_id'
+                    to:'covers.movie_id'
+                }
+            },
+            posters:{
+                relation: BaseModel.HasManyRelation,
+                modelClass: Poster,
+                join:{
+                    from:'movies.id',
+                    to:'posters.movie_id'
                 }
             },
             captions:{
